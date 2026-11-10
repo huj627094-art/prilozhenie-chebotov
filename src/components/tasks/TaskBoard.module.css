@@ -1,0 +1,13 @@
+.board {
+  display: grid;
+  gap: 16px;
+  padding-top: 12px;
+}
+
+.panel {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}

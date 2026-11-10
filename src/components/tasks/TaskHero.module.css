@@ -1,0 +1,123 @@
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px 32px;
+  padding-block: 20px 8px;
+}
+
+.heading {
+  min-width: 0;
+}
+
+.date {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.date::first-letter {
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(44px, 11vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.summary {
+  flex: 1 1 300px;
+  max-width: 380px;
+  transition: opacity 200ms ease;
+}
+
+.loading {
+  opacity: 0.35;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2px;
+  min-width: 0;
+}
+
+.stat dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat dd {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.of {
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.04em !important;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.progress {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--done);
+  transform-origin: left;
+  transition: transform 400ms ease;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 640px) {
+  .summary {
+    max-width: none;
+  }
+
+  .stat dd {
+    font-size: 24px;
+  }
+}

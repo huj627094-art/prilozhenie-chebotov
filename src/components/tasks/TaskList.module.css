@@ -1,0 +1,59 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.emptyTitle {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.emptyText {
+  max-width: 340px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.skeleton {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.skeleton span {
+  border-radius: 999px;
+  background: var(--surface-2);
+  animation: shimmer 1.2s ease-in-out infinite alternate;
+}
+
+.skeletonDot {
+  width: 26px;
+  height: 26px;
+}
+
+.skeletonLine {
+  flex: 1;
+  height: 14px;
+}
+
+.skeletonTime {
+  width: 72px;
+  height: 22px;
+}
+
+@keyframes shimmer {
+  to {
+    opacity: 0.4;
+  }
+}

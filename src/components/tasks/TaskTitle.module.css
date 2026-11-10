@@ -1,0 +1,30 @@
+.title {
+  overflow-wrap: anywhere;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  transition: color 200ms ease;
+}
+
+.done {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: color-mix(in srgb, var(--muted) 70%, transparent);
+}
+
+.input {
+  width: 100%;
+  margin: -5px 0 -5px -9px;
+  padding: 4px 8px;
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.input:focus {
+  outline: none;
+}
