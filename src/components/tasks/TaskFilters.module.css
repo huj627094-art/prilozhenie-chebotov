@@ -1,33 +1,11 @@
 .filters {
   display: flex;
-  gap: 2px;
-  padding: 3px;
-  border-radius: 12px;
-  background: var(--surface-2);
+  gap: 5px;
 }
 
-.option {
-  flex: 1;
-  padding: 7px 12px;
-  border: 0;
-  border-radius: 9px;
-  background: transparent;
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 700;
-  white-space: nowrap;
-  transition:
-    background-color 150ms ease,
-    color 150ms ease,
-    box-shadow 150ms ease;
-}
-
-.option:hover {
-  color: var(--ink);
-}
-
-.option[aria-pressed="true"] {
-  background: var(--surface);
-  color: var(--ink);
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.12);
+.active,
+.active:hover:not(:disabled) {
+  background: #2f80ed;
+  border-color: #2f80ed;
+  color: #fff;
 }

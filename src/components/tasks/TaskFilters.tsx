@@ -1,8 +1,7 @@
-import { cx } from "@/lib/cx";
 import type { TaskFilter } from "@/types/task";
 import styles from "./TaskFilters.module.css";
 
-const options: Array<{ value: TaskFilter; label: string }> = [
+const options: { value: TaskFilter; label: string }[] = [
   { value: "all", label: "Все" },
   { value: "active", label: "Активные" },
   { value: "done", label: "Выполненные" },
@@ -11,17 +10,16 @@ const options: Array<{ value: TaskFilter; label: string }> = [
 interface TaskFiltersProps {
   value: TaskFilter;
   onChange: (filter: TaskFilter) => void;
-  className?: string;
 }
 
-export function TaskFilters({ value, onChange, className }: TaskFiltersProps) {
+export function TaskFilters({ value, onChange }: TaskFiltersProps) {
   return (
-    <div className={cx(styles.filters, className)} role="group" aria-label="Фильтр задач">
+    <div className={styles.filters}>
       {options.map((option) => (
         <button
           key={option.value}
           type="button"
-          className={styles.option}
+          className={value === option.value ? styles.active : undefined}
           aria-pressed={value === option.value}
           onClick={() => onChange(option.value)}
         >

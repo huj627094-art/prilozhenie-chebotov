@@ -1,8 +1,6 @@
 "use client";
 
-import { PauseIcon, PlayIcon } from "@/components/ui/icons";
 import { primeChime } from "@/lib/chime";
-import { cx } from "@/lib/cx";
 import { pauseTimer, startTimer } from "@/lib/tasks-store";
 import styles from "./TimerToggle.module.css";
 
@@ -26,13 +24,12 @@ export function TimerToggle({ taskId, title, running, disabled }: TimerTogglePro
   return (
     <button
       type="button"
-      className={cx(styles.toggle, running && styles.running)}
+      className={running ? styles.pause : styles.start}
       onClick={handleClick}
       disabled={disabled}
-      aria-label={`${running ? "Пауза" : "Запустить таймер"}: ${title}`}
-      title={running ? "Пауза" : "Запустить"}
+      aria-label={`${running ? "Пауза" : "Старт"}: ${title}`}
     >
-      {running ? <PauseIcon /> : <PlayIcon />}
+      {running ? "Пауза" : "Старт"}
     </button>
   );
 }

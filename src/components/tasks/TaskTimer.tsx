@@ -6,20 +6,12 @@ import styles from "./TaskTimer.module.css";
 interface TaskTimerProps {
   remainingMs: number;
   status: TaskStatus;
-  className?: string;
 }
 
-export function TaskTimer({ remainingMs, status, className }: TaskTimerProps) {
-  const value = formatTimer(remainingMs);
-  const [minutes, seconds] = value.split(":");
-
+export function TaskTimer({ remainingMs, status }: TaskTimerProps) {
   return (
-    <span
-      role="timer"
-      className={cx(styles.timer, styles[status], className)}
-      aria-label={`Осталось ${Number(minutes)} мин ${Number(seconds)} сек`}
-    >
-      {value}
+    <span role="timer" className={cx(styles.timer, styles[status])}>
+      {formatTimer(remainingMs)}
     </span>
   );
 }

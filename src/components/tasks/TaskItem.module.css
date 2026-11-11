@@ -1,176 +1,51 @@
 .item {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
-  grid-template-areas: "check body timer actions";
-  align-items: center;
-  gap: 10px 18px;
-  padding: 18px 16px 18px 22px;
-  border-bottom: 1px solid var(--line);
-  transition: background-color 200ms ease;
-  animation: enter 240ms ease-out;
-}
-
-.item > :first-child {
-  grid-area: check;
-}
-
-.body {
-  grid-area: body;
-  min-width: 0;
-}
-
-.timer {
-  grid-area: timer;
-}
-
-.actions {
-  grid-area: actions;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.actions > :first-child {
-  margin-right: 6px;
-}
-
-.meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0 6px;
-  margin-top: 3px;
-  color: var(--muted);
+  gap: 10px;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.text {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.expired {
   font-size: 13px;
-  font-weight: 600;
+  color: #e53935;
 }
 
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: currentColor;
-  opacity: 0.6;
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
-.total {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.total::before {
-  content: "· ";
-  font-family: var(--font-sans);
-}
-
-.progress {
-  position: absolute;
-  right: 0;
-  bottom: -1px;
-  left: 0;
-  height: 3px;
-}
-
-.progress span {
-  display: block;
-  height: 100%;
-  background: var(--line);
-  transform-origin: left;
-  transition: transform 250ms linear;
-}
-
-/* ——— состояния ——— */
-
-.running {
-  background: linear-gradient(90deg, var(--accent-soft), transparent 70%);
-}
-
-.running::before {
-  content: "";
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 0;
-  width: 4px;
-  border-radius: 0 4px 4px 0;
-  background: var(--accent);
-}
-
-.running .meta {
-  color: var(--accent);
-}
-
-.running .dot {
-  opacity: 1;
-  animation: pulse 1.4s ease-in-out infinite;
-}
-
-.running .progress span {
-  background: var(--accent);
-}
-
-.paused .progress span {
-  background: color-mix(in srgb, var(--accent) 45%, var(--line));
-}
-
-.expired .meta {
-  color: var(--danger);
-}
-
-.expired .dot {
-  opacity: 1;
+.delete {
+  color: #e53935;
 }
 
 .done {
-  background: color-mix(in srgb, var(--surface-2) 55%, transparent);
-}
-
-.done .meta {
-  color: var(--done);
-}
-
-.done .progress {
-  display: none;
-}
-
-.untimed .dot {
-  opacity: 0.3;
-}
-
-.item:last-child {
-  border-bottom: 0;
-}
-
-@keyframes enter {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes pulse {
-  50% {
-    opacity: 0.25;
-  }
+  background: #f7f7f7;
 }
 
 @media (max-width: 600px) {
-  .item {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas:
-      "check body body"
-      ". timer actions";
-    gap: 12px 14px;
-    padding: 16px 12px 16px 18px;
+  .buttons {
+    width: 100%;
   }
 
-  .item .timer {
-    text-align: left;
-  }
-
-  .actions > :first-child {
-    margin-right: 2px;
+  .buttons button {
+    min-width: 0;
+    padding: 6px 9px;
   }
 }

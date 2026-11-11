@@ -1,6 +1,6 @@
 .footer {
-  padding-block: 40px 32px;
-  color: var(--muted);
-  font-size: 13px;
+  padding: 30px 15px;
   text-align: center;
+  font-size: 14px;
+  color: #999;
 }

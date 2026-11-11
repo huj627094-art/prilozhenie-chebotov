@@ -1,39 +1,18 @@
 .timer {
-  display: inline-block;
-  min-width: 5ch;
-  font-family: var(--font-mono);
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-  transition:
-    color 200ms ease,
-    opacity 200ms ease;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .running {
-  color: var(--accent);
+  color: #2f80ed;
 }
 
 .expired {
-  color: var(--danger);
-  animation: blink 0.5s ease-in-out 4;
+  color: #e53935;
 }
 
+.done,
 .untimed {
-  color: var(--muted);
-  opacity: 0.45;
-}
-
-.done {
-  color: var(--muted);
-  opacity: 0.5;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0.2;
-  }
+  color: #aaa;
 }

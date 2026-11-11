@@ -14,18 +14,14 @@ interface TaskFooterProps {
 export function TaskFooter({ activeCount, doneCount, filter, onFilterChange }: TaskFooterProps) {
   return (
     <div className={styles.footer}>
-      <p className={styles.counter} aria-live="polite">
-        <strong>{activeCount}</strong> {plural(activeCount, ["активная задача", "активные задачи", "активных задач"])}
-      </p>
+      <span className={styles.counter}>
+        {activeCount} {plural(activeCount, ["активная задача", "активные задачи", "активных задач"])}
+      </span>
 
-      <TaskFilters className={styles.filters} value={filter} onChange={onFilterChange} />
+      <TaskFilters value={filter} onChange={onFilterChange} />
 
-      <button type="button" className={styles.clear} onClick={clearCompleted} disabled={doneCount === 0}>
-        Удалить выполненные{doneCount > 0 && (
-          <span className={styles.badge} aria-hidden="true">
-            {doneCount}
-          </span>
-        )}
+      <button type="button" onClick={clearCompleted} disabled={doneCount === 0}>
+        Удалить выполненные
       </button>
     </div>
   );
